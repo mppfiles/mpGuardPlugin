@@ -19,7 +19,7 @@ generator:
         display: [=username, created_at, last_login]
 
       form:
-        class: sfGuardUserAdminForm
+        class: PluginsfGuardUserAdminForm
         display:
           "NONE":                   [username, password, password_again]
           "Permissions and groups": [is_active, is_super_admin, sf_guard_user_group_list, sf_guard_user_permission_list]
