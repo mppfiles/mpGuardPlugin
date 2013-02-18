@@ -34,7 +34,7 @@ class PluginsfGuardUserAdminForm extends BasesfGuardUserForm
     $this->mergePostValidator(new sfValidatorSchemaCompare('password', sfValidatorSchemaCompare::EQUAL, 'password_again', array(), array('invalid' => 'The two passwords must be the same.')));
 
     // profile form?
-    $profileFormClass = sfConfig::get('app_sf_guard_plugin_profile_class', 'sfGuardUserProfile').'Form';
+    $profileFormClass = sfConfig::get('app_sf_guard_plugin_profile_class', 'SfGuardUserProfile').'Form';
     if (class_exists($profileFormClass))
     {
       $profileForm = new $profileFormClass();

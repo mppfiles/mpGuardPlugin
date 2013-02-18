@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "Building schema..."
 php symfony propel:build-schema
 cp plugins/mpGuardPlugin/config/schema.custom.yml config/schema.custom.yml
