@@ -13,7 +13,7 @@ require_once dirname(__FILE__).'/../lib/BasesfGuardUserActions.class.php';
 class sfGuardUserActions extends BasesfGuardUserActions
 {
   
-  public function executeChangePass(sfWebRequest $request)
+  public function executeChangePassword(sfWebRequest $request)
   {
     $this->form = new PluginsfGuardChangePassForm();
     
