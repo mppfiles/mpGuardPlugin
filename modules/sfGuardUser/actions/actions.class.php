@@ -26,7 +26,7 @@ class sfGuardUserActions extends BasesfGuardUserActions
         $values = $this->form->getValues();
         $this->getUser()->setPassword($values['password']);
         
-        $this->getUser()->setFlash('notice', 'Password changed successfully.');
+        $this->getUser()->setFlash('notice', 'Password changed successfully');
         
         return $this->redirect("@homepage");
       }
