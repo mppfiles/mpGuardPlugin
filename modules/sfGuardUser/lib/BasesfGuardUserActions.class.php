@@ -13,4 +13,23 @@ require_once dirname(__FILE__).'/sfGuardUserGeneratorHelper.class.php';
  */
 class BasesfGuardUserActions extends autoSfGuardUserActions
 {
+  public function executeChangePassword(sfWebRequest $request)
+  {
+    $this->form = new PluginsfGuardChangePassForm();
+    
+    if($request->isMethod('post'))
+    {
+      $this->form->bind($request->getParameter('sf_guard_user'));
+      
+      if($this->form->isValid())
+      {
+        $values = $this->form->getValues();
+        $this->getUser()->setPassword($values['password']);
+        
+        $this->getUser()->setFlash('notice', 'Password changed successfully');
+        
+        return $this->redirect("@homepage");
+      }
+    }
+  }
 }
