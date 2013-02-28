@@ -276,7 +276,7 @@ class PluginsfGuardUser extends BasesfGuardUser
     $this->allPermissions = null;
   }
 
-  public function delete(PropelPDO $con = null)
+  public function postDelete(PropelPDO $con = null)
   {
     // delete profile if available
     try
@@ -290,7 +290,7 @@ class PluginsfGuardUser extends BasesfGuardUser
     {
     }
 
-    return parent::delete($con);
+    return parent::postDelete($con);
   }
 
   public function setPasswordHash($v)
