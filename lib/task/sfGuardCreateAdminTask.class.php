@@ -53,7 +53,7 @@ EOF;
   {
     $databaseManager = new sfDatabaseManager($this->configuration);
 
-    $user = sfGuardUserPeer::retrieveByUsername($arguments['username']);
+    $user = sfGuardUserQuery::create()->findOneByUsername($arguments['username']);
     if (!$user)
     {
       throw new sfCommandException(sprintf('User "%s" does not exist.', $arguments['username']));
