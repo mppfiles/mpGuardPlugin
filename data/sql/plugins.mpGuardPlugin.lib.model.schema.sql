@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS `sf_guard_group`;
 
 CREATE TABLE `sf_guard_group`
 (
-	`id` INTEGER(11)  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER(11) UNSIGNED  UNSIGNED NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(255)  NOT NULL,
 	`description` TEXT,
 	PRIMARY KEY (`id`)
@@ -27,8 +27,8 @@ DROP TABLE IF EXISTS `sf_guard_group_permission`;
 
 CREATE TABLE `sf_guard_group_permission`
 (
-	`group_id` INTEGER(11)  NOT NULL,
-	`permission_id` INTEGER(11)  NOT NULL,
+	`group_id` INTEGER(11) UNSIGNED NOT NULL,
+	`permission_id` INTEGER(11) UNSIGNED NOT NULL,
 	PRIMARY KEY (`group_id`,`permission_id`),
 	KEY `sf_guard_group_permission_FI_2`(`permission_id`),
 	CONSTRAINT `sf_guard_group_permission_FK_1`
@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `sf_guard_permission`;
 
 CREATE TABLE `sf_guard_permission`
 (
-	`id` INTEGER(11)  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(255)  NOT NULL,
 	`description` TEXT,
 	PRIMARY KEY (`id`)
@@ -67,7 +67,7 @@ DROP TABLE IF EXISTS `sf_guard_user`;
 
 CREATE TABLE `sf_guard_user`
 (
-	`id` INTEGER(11)  NOT NULL AUTO_INCREMENT,
+	`id` INTEGER(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`username` VARCHAR(128)  NOT NULL,
 	`algorithm` VARCHAR(128) default 'sha1' NOT NULL,
 	`salt` VARCHAR(128)  NOT NULL,
@@ -89,8 +89,8 @@ DROP TABLE IF EXISTS `sf_guard_user_group`;
 
 CREATE TABLE `sf_guard_user_group`
 (
-	`user_id` INTEGER(11)  NOT NULL,
-	`group_id` INTEGER(11)  NOT NULL,
+	`user_id` INTEGER(11) UNSIGNED NOT NULL,
+	`group_id` INTEGER(11) UNSIGNED NOT NULL,
 	PRIMARY KEY (`user_id`,`group_id`),
 	KEY `sf_guard_user_group_FI_2`(`group_id`),
 	CONSTRAINT `sf_guard_user_group_FK_1`
@@ -114,8 +114,8 @@ DROP TABLE IF EXISTS `sf_guard_user_permission`;
 
 CREATE TABLE `sf_guard_user_permission`
 (
-	`user_id` INTEGER(11)  NOT NULL,
-	`permission_id` INTEGER(11)  NOT NULL,
+	`user_id` INTEGER(11) UNSIGNED  NOT NULL,
+	`permission_id` INTEGER(11) UNSIGNED  NOT NULL,
 	PRIMARY KEY (`user_id`,`permission_id`),
 	KEY `sf_guard_user_permission_FI_2`(`permission_id`),
 	CONSTRAINT `sf_guard_user_permission_FK_1`
